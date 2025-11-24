@@ -5,6 +5,7 @@ class Flashcard(models.Model):
     collection = models.ForeignKey('FlashcardCollection', on_delete=models.CASCADE, related_name='flashcards')
     front = models.TextField()
     back = models.TextField()
+    header_right = models.CharField(max_length=200, default='', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

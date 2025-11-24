@@ -28,6 +28,7 @@ class FlashcardSerializer(serializers.ModelSerializer):
             'collection',
             'front',
             'back',
+            'header_right',
             'created_at',
             'updated_at',
         ]

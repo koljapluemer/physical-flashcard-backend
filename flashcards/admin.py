@@ -38,7 +38,7 @@ class FlashcardCollectionAdmin(admin.ModelAdmin):
 
 @admin.register(Flashcard)
 class FlashcardAdmin(admin.ModelAdmin):
-    list_display = ['front', 'collection', 'created_at']
+    list_display = ['front', 'collection', 'header_right', 'created_at']
     list_filter = ['collection']
-    search_fields = ['front', 'back']
+    search_fields = ['front', 'back', 'header_right']
     ordering = ['collection', 'id']
