@@ -27,9 +27,13 @@ class CustomUserAdmin(UserAdmin):
 
 @admin.register(FlashcardCollection)
 class FlashcardCollectionAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at', 'updated_at']
+    list_display = ['title', 'header_color', 'background_color', 'created_at', 'updated_at']
     search_fields = ['title', 'description']
     ordering = ['title']
+    fieldsets = (
+        (None, {'fields': ('title', 'description')}),
+        ('Styling', {'fields': ('header_color', 'background_color', 'font_color', 'header_font_color', 'header_text_left')}),
+    )
 
 
 @admin.register(Flashcard)
