@@ -29,7 +29,7 @@ flashcard_manager/            # Django project settings
 
 ## Tech stack
 
-- Django 5.2 + Poetry
+- Django 5.2
 - Django REST Framework
 - PostgreSQL (SQLite for dev)
 - Token authentication
@@ -50,11 +50,31 @@ POST /api/flashcards/          # Create flashcard
 
 ## Run locally
 
+
+### Setup 
+
+- Requires `uv` (install with `pip install uv` if needed).
+- copypaste `.env.example` to `.env`
+
 ```bash
-poetry install
-poetry run python manage.py migrate
-poetry run python manage.py createsuperuser  # Create user with email
-poetry run python manage.py runserver
+uv sync --no-dev
+uv run python manage.py migrate
+DJANGO_SUPERUSER_PASSWORD=admin \
+uv run python manage.py createsuperuser \
+  --noinput \
+  --email admin@example.com
+```
+
+### Daily 
+
+```bash
+uv run python manage.py runserver
+```
+
+...or, to run all
+
+```bash
+just run
 ```
 
 ## Authentication

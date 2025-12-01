@@ -10,9 +10,9 @@ services:
     name: flashcard-manager
     runtime: python
     buildCommand: |
-      pip install --upgrade pip poetry
+      pip install --upgrade pip uv
       ./build.sh
-    startCommand: poetry run gunicorn flashcard_manager.asgi:application -k uvicorn.workers.UvicornWorker
+    startCommand: uv run gunicorn flashcard_manager.asgi:application -k uvicorn.workers.UvicornWorker
     envVars:
       - key: DATABASE_URL
         fromDatabase:
