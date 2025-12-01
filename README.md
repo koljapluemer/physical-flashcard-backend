@@ -24,7 +24,7 @@ flashcards/                    # Single consolidated app
 ├── admin.py                  # Admin for User + Flashcards
 └── migrations/
 
-flashcard_manager/            # Django project settings
+config/            # Django project settings
 ```
 
 ## Tech stack
@@ -34,22 +34,7 @@ flashcard_manager/            # Django project settings
 - PostgreSQL (SQLite for dev)
 - Token authentication
 
-## API
-
-See [API.md](API.md) for complete API documentation.
-
-### Quick start
-
-```
-POST /api/token-auth/          # Get auth token (email + password)
-GET  /api/collections/         # List collections
-POST /api/collections/         # Create collection
-GET  /api/flashcards/          # List flashcards
-POST /api/flashcards/          # Create flashcard
-```
-
 ## Run locally
-
 
 ### Setup 
 
@@ -57,6 +42,7 @@ POST /api/flashcards/          # Create flashcard
 - copypaste `.env.example` to `.env`
 
 ```bash
+git submodule add git@github.com:koljapluemer/physical-flashcard-doc.git doc 
 uv sync --no-dev
 uv run python manage.py migrate
 DJANGO_SUPERUSER_PASSWORD=admin \
@@ -77,17 +63,3 @@ uv run python manage.py runserver
 just run
 ```
 
-## Authentication
-
-Obtain a token:
-```bash
-curl -X POST http://localhost:8000/api/token-auth/ \
-  -H "Content-Type: application/json" \
-  -d '{"email": "user@example.com", "password": "yourpassword"}'
-```
-
-Use the token in subsequent requests:
-```bash
-curl http://localhost:8000/api/collections/ \
-  -H "Authorization: Token your-token-here"
-```
