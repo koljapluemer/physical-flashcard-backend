@@ -19,6 +19,9 @@ class Flashcard(models.Model):
 class FlashcardCollection(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+    width_mm = models.DecimalField(max_digits=6, decimal_places=2, default=85.60)
+    height_mm = models.DecimalField(max_digits=6, decimal_places=2, default=53.98)
+    font_family = models.CharField(max_length=200, default='Arial')
     header_color = models.CharField(max_length=7, default='#100e75')
     background_color = models.CharField(max_length=7, default='#f0f0f0')
     font_color = models.CharField(max_length=7, default='#171717')
