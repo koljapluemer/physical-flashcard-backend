@@ -6,6 +6,7 @@ class Flashcard(models.Model):
     front = models.TextField()
     back = models.TextField()
     header_right = models.CharField(max_length=200, default='', blank=True)
+    is_info_card = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
