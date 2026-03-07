@@ -1,5 +1,8 @@
 # Flashcard Manager
 
+> [!WARNING]
+> *Archival Notice*: reduced flow to monorepo
+
 Internal flashcard management REST API for author team.
 
 ## What it does
